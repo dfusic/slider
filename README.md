@@ -1,0 +1,3 @@
+# Custom jQuery slider
+
+WIP
