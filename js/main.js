@@ -5,8 +5,9 @@ $(document).ready(function () {
   sliderWidth();
 });
 var $leftPos = 0;
+
 function nextClickHandler($leftPos) {
-  
+
   $('.slider-control-next').click(function () {
     $leftPos = $('.active').width();
     // klasa active u prvom redu
@@ -20,12 +21,12 @@ function nextClickHandler($leftPos) {
     $next2 = $active2.next();
     // provjera da li postoji sljedeći element u prvom redu
     if ($next1.length) {
-      
+
       // makni klasu sa trenutnog elementa
       $('#row1 .slider-img').removeClass('active');
       // dodaj klasu na sljedeći element
       $next1.addClass('active');
-      
+
     } else {
       // kloniraj aktivnu sliku i postavi ju na prvo mjesto
       $('#row1 .active').clone().insertBefore('#row1 .slider-img:first');
@@ -48,7 +49,7 @@ function nextClickHandler($leftPos) {
       $('#row2 .slider-img').removeClass('active');
       // dodaj klasu active na prvi element
       $('#row2 .slider-img:first').addClass('active');
-      
+
     }
   });
 }
@@ -64,14 +65,14 @@ function prevClickHandler() {
     $next1 = $active1.next();
     $prev2 = $active2.prev();
     $next2 = $active2.next();
-    
+
     // provjeri da li postoji prethodni element u prvom redu
-    if($prev1.length){
+    if ($prev1.length) {
       // makni .active klasu sa svih elemenata
       $('#row1 .slider-img').removeClass('active');
       // dodaj .active klasu na prethodni element
       $prev1.addClass('active');
-    }else{
+    } else {
       // active klasa se nalazi na prvom elementu
       // makni .active klasu sa svih elemenata
       $('#row1 .slider-img').removeClass('active');
@@ -79,12 +80,12 @@ function prevClickHandler() {
       $('#row1 .slider-img:last').addClass('active');
     }
     //provjeri da li postoji prethodni element u drugom redu
-    if($prev2.length){
+    if ($prev2.length) {
       // makni .active klasu sa svih elemenata
       $('#row2 .slider-img').removeClass('active');
       // dodaj .active klasu na prethodni element
       $prev2.addClass('active');
-    }else{
+    } else {
       // active klasa se nalazi na prvom elementu
       // makni .active klasu sa svih elemenata
       $('#row2 .slider-img').removeClass('active');
@@ -108,20 +109,21 @@ function hoverControlHandler() {
     $('.slider-control-prev img').attr('src', 'assets/arrow-gray-left.png');
   });
 }
-function sliderWidth(){
+
+function sliderWidth() {
   $width1 = 0;
   $width2 = 0;
   $row1Children = $('#row1').children();
   $row2Children = $('#row2').children();
   // petlja preko elemenata u prvom redu
-  for($i = 0; $i < $row1Children.length ; $i++){
+  for ($i = 0; $i < $row1Children.length; $i++) {
     $width1 += $row1Children[$i].width;
   }
   // širina prvog reda
   $('#row1').css({
     width: $width1 + 50
   })
-  for($y = 0; $y < $row2Children.length; $y++){
+  for ($y = 0; $y < $row2Children.length; $y++) {
     $width2 += $row2Children[$y].width;
   }
   $('#row2').css({
